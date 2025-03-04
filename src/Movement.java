@@ -11,8 +11,6 @@ public void checkposition(){
         for (int i = 0; i < components.roomlist.size(); i++) {
             if (components.roomlist.get(i).name.equals(name)) {
                 components.inroom = i;
-            } else {
-                System.out.println("skibidi sracka nebyla nalezena");
             }
         }
     }
