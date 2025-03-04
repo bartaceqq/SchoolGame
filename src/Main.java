@@ -6,13 +6,13 @@ public class Main {
         mapLoader.loadMap();
         Movement movement = new Movement(components);
         //posunuti do mistnosti pomoci napsani jmena mistnosti
-        movement.move("garage");
+        movement.move("park");
         //kontrola pozice
         movement.checkposition();
         //vypis itemu a osob v mistnosti
     components.printroomsthings();
         //posunuti do mistnosti pomoci napsani jmena mistnosti
-        movement.move("museum");
+        movement.move("garage");
         //kontrola pozice
         movement.checkposition();
         //vypis itemu a osob v mistnosti
