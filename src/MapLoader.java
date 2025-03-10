@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class MapLoader {
+public class MapLoader extends Command {
     Components components;
     int counter = 0;
     public MapLoader(Components components) {
@@ -45,5 +45,15 @@ public class MapLoader {
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void execute(String name) {
+loadMap();
+    }
+
+    @Override
+    public Boolean exit() {
+    return false;
     }
 }
