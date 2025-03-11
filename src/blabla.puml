@@ -1,0 +1,28 @@
+@startuml
+start
+
+:Initialize Program;
+
+:Load Map;
+:Load Texts;
+
+if (User Input?) then (Yes)
+    :Process Command;
+    switch (Command Type)
+        case (Move)
+            :Check Position;
+            :Update Position;
+        case (Talk)
+            :Communication;
+        case (Interact)
+            :Modify Item/Environment;
+    endswitch
+else (No)
+    :Wait for Input;
+endif
+
+:Update Game State;
+:Render Output;
+
+stop
+@enduml

@@ -4,6 +4,7 @@ public class Components extends Command {
     HashMap<Integer, Room> roomlist = new HashMap<>();
     int inroom = 0;
     Boolean exit = false;
+    Person person;
     public void printroomsthings(){
         System.out.println(" ITEMS: ");
         for (int i = 0; i <roomlist.get(inroom).items.size(); i++) {

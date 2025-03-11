@@ -6,9 +6,9 @@ public class Console {
     Scanner sc = new Scanner(System.in);
     Components components = new Components();
     HashMap<String, Command> commandmap = new HashMap<>();
-
+    Texts texts = new Texts();
     public void ConsoleStart() {
-
+texts.loadtexts();
         MapLoader mapLoader = new MapLoader(components);
         mapLoader.loadMap();
         commandmap.put("move", new Movement(components));
@@ -26,5 +26,6 @@ public class Console {
                 }
             }
         }
+
     }
 }
