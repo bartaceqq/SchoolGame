@@ -1,7 +1,4 @@
-public class Talking extends Command{
-    public void comunication(){
-
-    }
+public class Evidence extends Command {
 
     @Override
     public void execute(String name) {

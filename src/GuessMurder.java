@@ -1,8 +1,4 @@
-public class Talking extends Command{
-    public void comunication(){
-
-    }
-
+public class GuessMurder extends Command{
     @Override
     public void execute(String name) {
 

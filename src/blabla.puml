@@ -5,24 +5,116 @@ start
 
 :Load Map;
 :Load Texts;
-
-if (User Input?) then (Yes)
-    :Process Command;
+while(exit = false)
     switch (Command Type)
         case (Move)
-            :Check Position;
-            :Update Position;
+            :room name;
+            if (room is close enough) is (yes) then
+               :Update Position;
+            else (no)
+              :room not close enough;
+            endif
+
         case (Talk)
             :Communication;
-        case (Interact)
-            :Modify Item/Environment;
+            while (exit = false) is (yes)
+
+                if (person name) is (comunications list contains person name) then
+                          if (person is in room?) is (yes) then
+                            :print comunication from person name of comunication position;
+                            :comunication posotion ++;
+                             else (no)
+
+                                                    endif
+                          else (comunications list does not contains person name)
+                            :notfound;
+                          endif
+                    if (continiue comunication) is (yes) then
+
+                    else (no)
+                      :exit = true;
+                    endif
+            endwhile
+
+        case (ShowItemsInRoom)
+            :printitems;
+
+             case(item)
+              if (action) is (actionlist contains action) then
+              switch(item action)
+              case (pick up item)
+              if (itemname) is (itemslist cointains itemname) then
+                                           if (itemispickable) is (true) then
+                                             :inventory add item;
+                                             :itemslist remove item;
+                                           else (no)
+                                             :not pickable;
+                                           endif
+                                         else (itemslist does not cointains itemname)
+                                           :not found;
+                                         endif
+              case(interact with item)
+              if (itemname) is (itemslist cointains itemname) then
+                                               : print item´s interaction;
+                                               else(itemslist does not cointains itemname)
+                                              :false;
+                                               endif
+
+              case(look at item)
+             if (itemname) is (itemslist cointains itemname) then
+              :print info about item;
+              else(itemslist does not cointains itemname)
+             :item not found;
+              endif
+
+
+              endswitch
+
+
+
+
+
+
+                          endif
+            case(evidence)
+            :showevidence;
+            if (connect evidences) is (yes) then
+              if (evidence 1 name) is (evidencelist contains evidencename) then
+                 if (evidence 2 name) is (evidencelist contains evidencename) then
+
+                              if (check if there is connection between evidences) is (yes) then
+                                :print conenction;
+                                :remove both evidences from the list;
+                                :add connection as a evidence into evidences list;
+                              else (no)
+                                :false;
+                              endif
+                              else (evidencelist does not contains evidencename)
+                                :evidence not found;
+                              endif
+              else (evidencelist does not contains evidencename)
+                :evidence not found;
+              endif
+            else (no)
+
+            endif
+            case(guess murder name)
+            if (murdername) is (murdername = real murder name) then
+              :exit = true;
+              :print winning text;
+
+            else (murdername does not equal real murder name)
+                    if (guess) is (=>1) then
+                      :guess--;
+                    else (=1)
+                      :print losing text;
+                      :exit = true;
+                    endif
+            endif
+            case(Exit)
+            :exit = true;
+
     endswitch
-else (No)
-    :Wait for Input;
-endif
-
-:Update Game State;
-:Render Output;
-
+   endwhile
 stop
 @enduml
