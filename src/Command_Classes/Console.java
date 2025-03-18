@@ -22,6 +22,7 @@ public class Console implements Runnable {
         commandmap.put("showevidence", new ShowEvidence());
         commandmap.put("talk", new Talk(components, evidence));
         commandmap.put("help", new Help());
+        commandmap.put("guess", new Guess_Murder());
     }
 
     @Override
