@@ -9,25 +9,30 @@ public class ShowRoomItems extends Command {
         this.components = components;
     }
 
-    public void showitemsinroom() {
+    public String showitemsinroom() {
+        String output = "";
+
         if (components.roomlist.containsKey(components.inroom)) {
             Room currentRoom = components.roomlist.get(components.inroom);
-            System.out.println("Items in " + currentRoom.name + ":");
+            output += "Items in " + currentRoom.name + ":\n";
 
-            // Loop through all items in the room and print their details
+            // Loop through all items in the room and append their details
             for (Item item : currentRoom.items.values()) {
-                System.out.println("- " + item.name); // Print item name
-                System.out.println("  Pickable: " + item.pickable); // Print pickable status
-                System.out.println("  Info: " + item.info); // Print info about the item
-                System.out.println("  Interaction: " + item.interaction); // Print interaction text
+                output += "- " + item.name + "\n"; // Append item name
+                output += "  Pickable: " + item.pickable + "\n"; // Append pickable status
+                output += "  Info: " + item.info + "\n"; // Append info about the item
+                output += "  Interaction: " + item.interaction + "\n"; // Append interaction text
             }
         } else {
-            System.out.println("No items in this room.");
+            output += "No items in this room.\n";
         }
+
+        return output; // Return the accumulated string
     }
+
     @Override
-    public void execute() {
-showitemsinroom();
+    public String execute() {
+        return showitemsinroom(); // Return the result from showitemsinroom
     }
 
     @Override

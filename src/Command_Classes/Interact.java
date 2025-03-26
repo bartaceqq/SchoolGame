@@ -10,37 +10,48 @@ public class Interact extends Command {
     Inventory inventory;
     Evidence evidence;
     Scanner sc = new Scanner(System.in);
+
     public Interact(Components components, Inventory inventory, Evidence evidence) {
-    this.components = components;
-this.inventory = inventory;
-this.evidence = evidence;
+        this.components = components;
+        this.inventory = inventory;
+        this.evidence = evidence;
     }
 
-    private void interact(){
-        System.out.println("Which itemm do you want to interact with ?");
+    private String interact() {
+        StringBuilder result = new StringBuilder();
+
         String pickupitem = sc.nextLine();
-        if(components.roomlist.get(components.inroom).items.containsKey(pickupitem)){
-            if (components.roomlist.get(components.inroom).items.get(pickupitem).pickable == true) {
+
+        if (components.roomlist.get(components.inroom).items.containsKey(pickupitem)) {
+            if (components.roomlist.get(components.inroom).items.get(pickupitem).pickable) {
                 String yellow = "\u001B[33m";
                 String reset = "\u001B[0m";
-                System.out.println(yellow + components.roomlist.get(components.inroom).items.get(pickupitem).interaction + reset);
-                inventory.inventorylist.put((components.roomlist.get(components.inroom).items.get(pickupitem).name),components.roomlist.get(components.inroom).items.get(pickupitem));
-                inventory.addtofile(components.roomlist.get(components.inroom).items.get(pickupitem).name,components.roomlist.get(components.inroom).items.get(pickupitem).interaction, components.roomlist.get(components.inroom).items.get(pickupitem).info );
+                result.append(yellow).append(components.roomlist.get(components.inroom).items.get(pickupitem).interaction).append(reset).append("\n");
+
+                inventory.inventorylist.put(components.roomlist.get(components.inroom).items.get(pickupitem).name, components.roomlist.get(components.inroom).items.get(pickupitem));
+                inventory.addtofile(components.roomlist.get(components.inroom).items.get(pickupitem).name, components.roomlist.get(components.inroom).items.get(pickupitem).interaction, components.roomlist.get(components.inroom).items.get(pickupitem).info);
                 evidence.checkforevidence(null);
 
                 components.roomlist.get(components.inroom).items.remove(pickupitem);
             } else {
                 String yellow = "\u001B[33m";
                 String reset = "\u001B[0m";
-                System.out.println(yellow + components.roomlist.get(components.inroom).items.get(pickupitem).interaction + reset);
+                result.append(yellow).append(components.roomlist.get(components.inroom).items.get(pickupitem).interaction).append(reset).append("\n");
+
                 evidence.checkforevidence(components.roomlist.get(components.inroom).items.get(pickupitem).interaction);
                 components.roomlist.get(components.inroom).items.remove(pickupitem);
             }
+        } else {
+            result.append("Item not found in this room.\n");
         }
+
+        return result.toString();
     }
+
     @Override
-    public void execute() {
-interact();
+    public String execute() {
+        System.out.println("Which item do you want to interact with ?");
+        return interact(); // Return the result of interact
     }
 
     @Override

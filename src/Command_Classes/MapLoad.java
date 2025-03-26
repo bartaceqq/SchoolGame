@@ -17,7 +17,9 @@ public class MapLoad extends Command {
         this.components = components;
     }
 
-    public void loadMap() {
+    public String loadMap() {
+        String output = "";
+
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Map"));
             while (br.ready()) {
@@ -89,20 +91,23 @@ public class MapLoad extends Command {
                         room.poeple.put(personcounter, person); // Add person to room
                         personcounter++; // Increment person counter
                     } else {
-                        System.out.println("sign error");
+                        output += "Sign error in map file at room " + room.name + "\n";
                     }
                 }
                 components.roomlist.put(counter, room);
+                output += "Room " + room.name + " loaded successfully.\n";
                 counter++;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            output += "Error loading map: " + e.getMessage() + "\n";
         }
+
+        return output; // Return the accumulated output as a string
     }
 
     @Override
-    public void execute() {
-        loadMap();
+    public String execute() {
+        return loadMap(); // Return the result from loadMap
     }
 
     @Override

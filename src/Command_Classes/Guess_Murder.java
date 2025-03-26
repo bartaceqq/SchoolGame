@@ -2,15 +2,14 @@ package Command_Classes;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Guess_Murder extends Command {
     Scanner sc = new Scanner(System.in);
 
-    public void guess() {
+    public String guess() {
+            String result = new String();
         try (BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Guessed"))) {
-
 
             String yellow = "\u001B[33m";
             String reset = "\u001B[0m";
@@ -21,6 +20,7 @@ public class Guess_Murder extends Command {
                 namelist.add(br.readLine());
                 count++;
             }
+
             if (count < 3) {
                 while (true) {
                     System.out.println("Write your guess: ");
@@ -31,10 +31,10 @@ public class Guess_Murder extends Command {
                     if (guess.matches("[Aa-zZ]+[ ][Aa-zZ]+")) {
 
                         if (namelist.contains(guess)) {
-                            System.out.println("already tried this name");
+                            result += ("Already tried this name\n");
                         } else if (guess.equals("debil")) {
 
-                            System.out.println("You guessed the murder and won");
+                            result += ("You guessed the murder and won\n");
                             System.exit(0);
                             break;
 
@@ -44,28 +44,29 @@ public class Guess_Murder extends Command {
                             bw.newLine();
                             bw.flush();
                             bw.close();
-                            System.out.println("didnt guessed right");
+                            result += ("Didn't guess right\n");
                             if (count == 2) {
-                                System.out.printf("Game Over");
+                                result +=("Game Over\n");
                                 System.exit(0);
                             }
                             break;
                         }
                     } else {
-                        System.out.println("Wrong format");
+                        result += ("Wrong format");
                     }
                 }
             } else {
-                System.out.println("too many guesses");
+                result += ("Too many guesses");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result.toString();
     }
 
     @Override
-    public void execute() {
-        guess();
+    public String execute() {
+        return guess(); // Return the result of guess
     }
 
     @Override
@@ -73,5 +74,3 @@ public class Guess_Murder extends Command {
         return null;
     }
 }
-
-

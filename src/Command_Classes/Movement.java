@@ -9,32 +9,40 @@ public class Movement extends Command {
     public Movement(Components components) {
         this.components = components;
     }
-    public void checkposition(){
+
+    public String checkPosition() {
         String yellow = "\u001B[33m";
         String reset = "\u001B[0m";
-        System.out.println(yellow + "your position:" + components.roomlist.get(components.inroom).name + reset);
+        return yellow + "Your position: " + components.roomlist.get(components.inroom).name + reset;
     }
-    public void move() {
-        System.out.println("in which room?");
+
+    public String move() {
+        StringBuilder result = new StringBuilder();
         String roomname = sc.nextLine();
         Boolean found = false;
+
         for (int i = 0; i < components.roomlist.size(); i++) {
             if (components.roomlist.get(i).name.equals(roomname)) {
-                if (components.inroom == i || components.inroom == i+1 || components.inroom == i-1) {
+                if (components.inroom == i || components.inroom == i + 1 || components.inroom == i - 1) {
                     components.inroom = i;
                     found = true;
+                    break;
                 }
             }
         }
-        if (!found) {
 
-            System.out.println("room not found");
+        if (!found) {
+            result.append("Room not found\n");
         }
-        checkposition();
+
+        result.append(checkPosition()); // Add position details
+        return result.toString(); // Return the result as a string
     }
+
     @Override
-    public void execute() {
-move();
+    public String execute() {
+        System.out.println("In which room?");
+        return move(); // Return the result of move
     }
 
     @Override

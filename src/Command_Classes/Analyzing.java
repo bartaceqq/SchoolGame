@@ -10,17 +10,20 @@ public class Analyzing extends Command {
         this.components = components;
     }
 
-    public void analyze() {
+    public String analyze() {
+        String output = "";
         System.out.println("which item do you want to analyze?");
         String lookatitem = sc.nextLine();
         if (components.roomlist.get(components.inroom).items.containsKey(lookatitem)) {
-            System.out.println(components.roomlist.get(components.inroom).items.get(lookatitem).info);
+           return (components.roomlist.get(components.inroom).items.get(lookatitem).info);
+        } else {
+            return "item not founf or is not in room";
         }
     }
 
     @Override
-    public void execute() {
-analyze();
+    public String execute() {
+return analyze();
     }
 
     @Override

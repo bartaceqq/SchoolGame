@@ -14,6 +14,7 @@ public class Console implements Runnable {
     Evidence evidence = new Evidence();
     public void createcommands(){
         commandmap.put("showroomitems", new ShowRoomItems(components));
+
         commandmap.put("move", new Movement(components));
         commandmap.put("interact", new Interact(components, inventory, evidence));
         commandmap.put("showinventory", new ShowInventory(inventory));
@@ -23,6 +24,8 @@ public class Console implements Runnable {
         commandmap.put("talk", new Talk(components, evidence));
         commandmap.put("help", new Help());
         commandmap.put("guess", new Guess_Murder());
+
+
     }
 
     @Override
@@ -36,7 +39,7 @@ public class Console implements Runnable {
             System.out.print("Enter command: \n >>");
             String command = sc.nextLine();
             if(commandmap.containsKey(command)){
-            commandmap.get(command).execute();
+                System.out.println(commandmap.get(command).execute());
             } else if(command.equals("exit")) {
                 break;
             } else {

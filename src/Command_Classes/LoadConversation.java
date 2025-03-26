@@ -15,7 +15,9 @@ public class LoadConversation extends Command {
         this.components = components;
     }
 
-    public void loadConversation() {
+    public String loadConversation() {
+        String output = ""; // To accumulate the result
+
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Conversations"));
             Person person = null;
@@ -24,13 +26,12 @@ public class LoadConversation extends Command {
                 String line = br.readLine().trim(); // Trim any extra spaces or newlines
 
                 if (line.startsWith("*")) { // New person
-
-
                     if (person != null) {
                         intextpersonlist.put(person.name, person);
                     }
                     person = new Person();
                     person.name = line.substring(1); // Remove the '*' character
+                    output += "Loaded person: " + person.name + "\n"; // Add to output
 
                 } else if (line.startsWith("-")) { // Conversation text
                     if (person != null) {
@@ -50,26 +51,32 @@ public class LoadConversation extends Command {
                     }
                 }
             }
+
             if (person != null) {
                 intextpersonlist.put(person.name, person);
             }
+
+            // Synchronize conversations with people in rooms
             for (int i = 0; i < components.roomlist.size(); i++) {
                 for (int j = 0; j < components.roomlist.get(i).poeple.size(); j++) {
                     Person roomPerson = components.roomlist.get(i).poeple.get(j);
                     if (intextpersonlist.containsKey(roomPerson.name)) {
                         roomPerson.conversationlist = intextpersonlist.get(roomPerson.name).conversationlist;
+                        output += "Conversations loaded for " + roomPerson.name + "\n"; // Add to output
                     }
                 }
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            output += "Error loading conversations: " + e.getMessage() + "\n"; // Add error to output
         }
+
+        return output; // Return the accumulated output as a string
     }
 
     @Override
-    public void execute() {
-        loadConversation();
+    public String execute() {
+        return loadConversation(); // Return the result from loadConversation
     }
 
     @Override

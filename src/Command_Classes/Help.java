@@ -1,23 +1,29 @@
 package Command_Classes;
 
+import java.io.StringReader;
+
 public class Help extends Command {
-    public void help(){
+
+    public String help() {
         String red = "\u001B[31m";
         String reset = "\u001B[0m";
-        System.out.println(red + "showroomitems" + reset);
-        System.out.println(red + "move" + reset);
-        System.out.println(red + "interact" + reset);
-        System.out.println(red + "showinventory" + reset);
-        System.out.println(red + "analyze" + reset);
-        System.out.println(red + "connectevidence" + reset);
-        System.out.println(red + "showevidence" + reset);
-        System.out.println(red + "talk" + reset);
+        String result = new String();
+
+        result += (red) +("showroomitems") + (reset) + ("\n");
+        result += (red) +("move") + (reset) + ("\n");
+        result += (red) +("interact") + (reset) + ("\n");
+        result += (red) +("showinventory") + (reset) + ("\n");
+        result += (red) +("analyze") + (reset) + ("\n");
+        result += (red) +("connectevidence") + (reset) + ("\n");
+        result += (red) +("showevidence") + (reset) + ("\n");
+        result += (red) +("talk") + (reset) + ("\n");
+
+        return result.toString();
     }
 
-
     @Override
-    public void execute() {
-help();
+    public String execute() {
+        return help(); // Return the result of help
     }
 
     @Override

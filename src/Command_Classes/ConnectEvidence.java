@@ -7,7 +7,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class ConnectEvidence extends Command {
@@ -21,7 +20,9 @@ public class ConnectEvidence extends Command {
         this.evidence = evidence;
     }
 
-    public void connectEvidence() {
+    public String connectEvidence() {
+        String output = new String(); // To accumulate the result
+
         try {
             String tex1 = "";
             String tex2 = "";
@@ -64,6 +65,9 @@ public class ConnectEvidence extends Command {
             if (!realevidence.isEmpty()) {
                 evidences.removeIf(e -> e.startsWith(number1 + "/") || e.startsWith(number2 + "/")); // Remove old evidence
                 evidences.add("1/" + realevidence); // Add the new connected evidence
+                output += ("Evidence connected successfully: " + realevidence);
+            } else {
+                output +=("No valid evidence found for connection.");
             }
 
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/Save_Files/Evidence", false));
@@ -73,19 +77,19 @@ public class ConnectEvidence extends Command {
                 bw.newLine();
                 number++;
             }
-
             bw.flush();
             bw.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            output += ("Error occurred: ");
         }
+
+        return output.toString(); // Return the accumulated result as a string
     }
 
-
     @Override
-    public void execute() {
-        connectEvidence();
+    public String execute() {
+        return connectEvidence(); // Return the result from connectEvidence
     }
 
     @Override

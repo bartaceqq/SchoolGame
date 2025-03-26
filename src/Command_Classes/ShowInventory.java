@@ -12,23 +12,28 @@ public class ShowInventory extends Command {
         this.inventory = inventory;
     }
 
-    public void showInventory() {
-        try(BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Inventory"))) {
+    public String showInventory() {
+        String output = ""; // To accumulate the result
+
+        try (BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Inventory"))) {
             while (br.ready()) {
                 String line = br.readLine();
-                String splitted[] = line.split(",");
-                System.out.println("- " + splitted[0]); // Print item
-                System.out.println("  Info: " + splitted[2]); // Print info about the item
-                System.out.println("  Interaction: " + splitted[1]);
-                System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------");
+                String[] splitted = line.split(",");
+                output += "- " + splitted[0] + "\n"; // Append item name
+                output += "  Info: " + splitted[2] + "\n"; // Append info about the item
+                output += "  Interaction: " + splitted[1] + "\n"; // Append interaction
+                output += "----------------------------------------------------------------------------------------------------------------------------------------------------------\n";
             }
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e) {
+            output += "Error loading inventory: " + e.getMessage() + "\n"; // Append error message
         }
+
+        return output; // Return the accumulated result as a string
     }
+
     @Override
-    public void execute() {
-       showInventory();
+    public String execute() {
+        return showInventory(); // Return the result from showInventory
     }
 
     @Override
