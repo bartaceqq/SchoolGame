@@ -2,8 +2,16 @@ package Command_Classes;
 
 import java.io.StringReader;
 
+/**
+ * The type Help.
+ */
 public class Help extends Command {
 
+    /**
+     * Help string.
+     *
+     * @return the string
+     */
     public String help() {
         String red = "\u001B[31m";
         String reset = "\u001B[0m";

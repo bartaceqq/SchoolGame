@@ -9,14 +9,33 @@ import Objects.Room;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * The type Map load.
+ */
 public class MapLoad extends Command {
+    /**
+     * The Counter.
+     */
     int counter = 0;
+    /**
+     * The Components.
+     */
     Components components;
 
+    /**
+     * Instantiates a new Map load.
+     *
+     * @param components the components
+     */
     public MapLoad(Components components) {
         this.components = components;
     }
 
+    /**
+     * Load map string.
+     *
+     * @return the string
+     */
     public String loadMap() {
         String output = "";
 

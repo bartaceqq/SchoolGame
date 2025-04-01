@@ -4,16 +4,39 @@ import Objects.Evidence;
 
 import java.util.Scanner;
 
+/**
+ * The type Talk.
+ */
 public class Talk extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+    /**
+     * The Evidence.
+     */
     Evidence evidence;
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Instantiates a new Talk.
+     *
+     * @param components the components
+     * @param evidence   the evidence
+     */
     public Talk(Components components, Evidence evidence) {
         this.components = components;
         this.evidence = evidence;
     }
 
+    /**
+     * Talk string.
+     *
+     * @return the string
+     */
     public String talk() {
         String output = new String(); // To accumulate the result
         System.out.println("Which person you want to talk with?");

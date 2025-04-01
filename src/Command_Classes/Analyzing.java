@@ -2,20 +2,39 @@ package Command_Classes;
 
 import java.util.Scanner;
 
+/**
+ * The type Analyzing.
+ */
 public class Analyzing extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Instantiates a new Analyzing.
+     *
+     * @param components the components
+     */
     public Analyzing(Components components) {
         this.components = components;
     }
 
-    public String analyze() {
+    /**
+     * Analyze string.
+     *
+     * @param lookatitem the lookatitem
+     * @return the string
+     */
+    public String analyze(String lookatitem) {
         String output = "";
-        System.out.println("which item do you want to analyze?");
-        String lookatitem = sc.nextLine();
+
         if (components.roomlist.get(components.inroom).items.containsKey(lookatitem)) {
-           return (components.roomlist.get(components.inroom).items.get(lookatitem).info);
+            return (components.roomlist.get(components.inroom).items.get(lookatitem).info);
         } else {
             return "item not founf or is not in room";
         }
@@ -23,7 +42,8 @@ public class Analyzing extends Command {
 
     @Override
     public String execute() {
-return analyze();
+        System.out.println("which item do you want to analyze?");
+        return analyze(sc.nextLine());
     }
 
     @Override

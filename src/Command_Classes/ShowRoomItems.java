@@ -3,12 +3,29 @@ package Command_Classes;
 import Objects.Item;
 import Objects.Room;
 
+/**
+ * The type Show room items.
+ */
 public class ShowRoomItems extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+
+    /**
+     * Instantiates a new Show room items.
+     *
+     * @param components the components
+     */
     public ShowRoomItems(Components components) {
         this.components = components;
     }
 
+    /**
+     * Showitemsinroom string.
+     *
+     * @return the string
+     */
     public String showitemsinroom() {
         String output = "";
 

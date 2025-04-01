@@ -3,8 +3,16 @@ package Command_Classes;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * The type Show evidence.
+ */
 public class ShowEvidence extends Command {
 
+    /**
+     * Show evidence string.
+     *
+     * @return the string
+     */
     public String showEvidence() {
         String output = new String(); // To accumulate the result
         try (BufferedReader br = new BufferedReader(new FileReader("src/Save_Files/Evidence"))) {

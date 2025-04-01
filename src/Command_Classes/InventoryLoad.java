@@ -6,13 +6,29 @@ import Objects.Item;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * The type Inventory load.
+ */
 public class InventoryLoad extends Command {
+    /**
+     * The Inventory.
+     */
     Inventory inventory;
 
+    /**
+     * Instantiates a new Inventory load.
+     *
+     * @param inventory the inventory
+     */
     public InventoryLoad(Inventory inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * Inventory load string.
+     *
+     * @return the string
+     */
     public String inventoryLoad() {
         String output = "";
 

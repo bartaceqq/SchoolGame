@@ -5,13 +5,29 @@ import Objects.Inventory;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+/**
+ * The type Show inventory.
+ */
 public class ShowInventory extends Command {
+    /**
+     * The Inventory.
+     */
     Inventory inventory;
 
+    /**
+     * Instantiates a new Show inventory.
+     *
+     * @param inventory the inventory
+     */
     public ShowInventory(Inventory inventory) {
         this.inventory = inventory;
     }
 
+    /**
+     * Show inventory string.
+     *
+     * @return the string
+     */
     public String showInventory() {
         String output = ""; // To accumulate the result
 

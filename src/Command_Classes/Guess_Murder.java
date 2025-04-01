@@ -4,9 +4,20 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The type Guess murder.
+ */
 public class Guess_Murder extends Command {
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Guess string.
+     *
+     * @return the string
+     */
     public String guess() {
         String result = "";
 
@@ -65,6 +76,12 @@ public class Guess_Murder extends Command {
         return result;
     }
 
+    /**
+     * Regexcheck boolean.
+     *
+     * @param guessik the guessik
+     * @return the boolean
+     */
     public boolean regexcheck(String guessik) {
         return guessik.matches("[A-Za-z]+ [A-Za-z]+");
     }

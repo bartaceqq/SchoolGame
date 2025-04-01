@@ -6,12 +6,34 @@ import Objects.Inventory;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * The type Console.
+ */
 public class Console implements Runnable {
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
+    /**
+     * The Commandmap.
+     */
     HashMap<String, Command> commandmap = new HashMap<>();
+    /**
+     * The Components.
+     */
     Components components = new Components();
+    /**
+     * The Inventory.
+     */
     Inventory inventory = new Inventory();
+    /**
+     * The Evidence.
+     */
     Evidence evidence = new Evidence();
+
+    /**
+     * Createcommands.
+     */
     public void createcommands(){
         commandmap.put("showroomitems", new ShowRoomItems(components));
 

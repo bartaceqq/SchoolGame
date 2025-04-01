@@ -7,14 +7,33 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 
+/**
+ * The type Load conversation.
+ */
 public class LoadConversation extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+    /**
+     * The Intextpersonlist.
+     */
     HashMap<String, Person> intextpersonlist = new HashMap<>();
 
+    /**
+     * Instantiates a new Load conversation.
+     *
+     * @param components the components
+     */
     public LoadConversation(Components components) {
         this.components = components;
     }
 
+    /**
+     * Load conversation string.
+     *
+     * @return the string
+     */
     public String loadConversation() {
         String output = ""; // To accumulate the result
 
@@ -71,7 +90,14 @@ public class LoadConversation extends Command {
 
         return output; // Return the accumulated output as a string
     }
-public String loadperson(Person person) {
+
+    /**
+     * Loadperson string.
+     *
+     * @param person the person
+     * @return the string
+     */
+    public String loadperson(Person person) {
     if (person != null) {
         intextpersonlist.put(person.name, person);
         return person.name + " has been loaded";

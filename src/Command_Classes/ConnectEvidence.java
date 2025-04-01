@@ -9,17 +9,43 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The type Connect evidence.
+ */
 public class ConnectEvidence extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+    /**
+     * The Evidence.
+     */
     Evidence evidence;
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
+    /**
+     * The Evidences.
+     */
     ArrayList<String> evidences = new ArrayList<>();
 
+    /**
+     * Instantiates a new Connect evidence.
+     *
+     * @param components the components
+     * @param evidence   the evidence
+     */
     public ConnectEvidence(Components components, Evidence evidence) {
         this.components = components;
         this.evidence = evidence;
     }
 
+    /**
+     * Connect evidence string.
+     *
+     * @return the string
+     */
     public String connectEvidence() {
         String output = new String(); // To accumulate the result
 

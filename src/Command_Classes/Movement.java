@@ -16,13 +16,12 @@ public class Movement extends Command {
         return yellow + "Your position: " + components.roomlist.get(components.inroom).name + reset;
     }
 
-    public String move() {
+    public String move(String ss) {
         StringBuilder result = new StringBuilder();
-        String roomname = sc.nextLine();
         Boolean found = false;
 
         for (int i = 0; i < components.roomlist.size(); i++) {
-            if (components.roomlist.get(i).name.equals(roomname)) {
+            if (components.roomlist.get(i).name.equals(ss)) {
                 if (components.inroom == i || components.inroom == i + 1 || components.inroom == i - 1) {
                     components.inroom = i;
                     found = true;
@@ -42,7 +41,7 @@ public class Movement extends Command {
     @Override
     public String execute() {
         System.out.println("In which room?");
-        return move(); // Return the result of move
+        return move(sc.nextLine()); // Return the result of move
     }
 
     @Override

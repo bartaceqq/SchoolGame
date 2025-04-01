@@ -5,12 +5,34 @@ import Objects.Inventory;
 
 import java.util.Scanner;
 
+/**
+ * The type Interact.
+ */
 public class Interact extends Command {
+    /**
+     * The Components.
+     */
     Components components;
+    /**
+     * The Inventory.
+     */
     Inventory inventory;
+    /**
+     * The Evidence.
+     */
     Evidence evidence;
+    /**
+     * The Sc.
+     */
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * Instantiates a new Interact.
+     *
+     * @param components the components
+     * @param inventory  the inventory
+     * @param evidence   the evidence
+     */
     public Interact(Components components, Inventory inventory, Evidence evidence) {
         this.components = components;
         this.inventory = inventory;
