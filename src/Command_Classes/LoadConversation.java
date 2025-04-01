@@ -51,10 +51,8 @@ public class LoadConversation extends Command {
                     }
                 }
             }
+    loadperson(person);
 
-            if (person != null) {
-                intextpersonlist.put(person.name, person);
-            }
 
             // Synchronize conversations with people in rooms
             for (int i = 0; i < components.roomlist.size(); i++) {
@@ -73,7 +71,13 @@ public class LoadConversation extends Command {
 
         return output; // Return the accumulated output as a string
     }
-
+public String loadperson(Person person) {
+    if (person != null) {
+        intextpersonlist.put(person.name, person);
+        return person.name + " has been loaded";
+    }
+    else return "Person could not be loaded";
+}
     @Override
     public String execute() {
         return loadConversation(); // Return the result from loadConversation
