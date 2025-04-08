@@ -1,5 +1,10 @@
-crime_scene-/{bloody knife}(blade has a unique serration pattern)knife+-/{broken watch}(stopped at 9:13)watch+-/{fabric scrap}(red polyester)fabric+-*detective-*janitor
-library-/{torn diary page}("SKIBIDI was here last night")diary_page+-/{book}("Advanced Toxicology")book+-*librarian
-laboratory-/{chemical vial}("Midnight Blue" label)vial+-/{gloves}(size XL, right torn)gloves+-*scientist
-bedroom-/{love letter}("Meet me at the clocktower -S")letter+-/{photo}(blurry figure in red coat)photo+-*victim_roommate
-clocktower-/{footprints}(size 12 boots)footprints+-/{cigarette butt}("Black Lotus" brand)butt+-*clockkeeper
+crime_scene-/{bloody_knife}(engraved "JP" with pork residue)knife+-/{receipt}(Pork Butcher Shop, 9/12)receipt+-/{watch}(stopped at 9:13)watch+-/{button}(from butcher's apron)button+-*detective-*medic
+butcher_shop-/{ledger}("John Pork: $10K debt - LAST WARNING")ledger+-/{freezer}(contains bloody apron)freezer+-/{calendar}("Meeting - Victim 9/12 9PM")calendar+-*butcher-*apprentice
+victims_house-/{diary}("John Pork threatened: 'You're bacon!'")diary+-/{emails}("Pork will kill me!" printouts)emails+-/{safe}("Pork's IOU" inside)safe+-*spouse-*maid
+park-/{footprints}(size 12, pork fat traces)footprints+-/{glove}(latex, "Pork King" logo)glove+-/{cctv}(shadows figure in butcher hat)cctv+-*homeless-*jogger
+alley-/{trash_bag}(bloody clothes, pork scent)bag+-/{note}("Meet 9PM - JP")note+-/{knife_sheath}(fits crime scene knife)sheath+-*dumpster_diver
+morgue-/{autopsy}("Pork seasoning in wounds")report+-/{victim_phone}("20 missed: Pork Butcher")phone+-*coroner
+police_station-/{arrest_record}("John Pork: 3 assaults")record+-/{evidence_log}("Knife matches butcher set")log+-*sergeant
+bank-/{loan_docs}("Pork denied $10K")docs+-/{withdrawal}("Victim took $10K 9/12")slip+-*teller
+tavern-/{bar_tab}("John Pork drank here until 8:45")tab+-/{security_tape}(Pork left angry)tape+-*bartender
+clocktower-/{witness_statement}("Saw Pork running 9:13")statement+-/{blood_drops}(leading to butcher shop)drops+-*clockkeeper

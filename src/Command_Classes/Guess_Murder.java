@@ -52,7 +52,7 @@ public class Guess_Murder extends Command {
 
                     if (namelist.contains(guess)) {
                         System.out.println("Already tried this name.");
-                    } else if (guess.equals("debil")) {
+                    } else if (guess.equals("John Pork")) {
                         System.out.println("You guessed the murder and won!");
                         System.exit(0);
                     } else {
