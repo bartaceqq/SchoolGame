@@ -1,5 +1,5 @@
-park-/{you picked up a gun}(there is a blood on the gun)gun+-/{someone bleeded here}(there is trail of blood in here)blood trail+-/{there are signs that victim was tied up to this tree}(this is a tree)tree-/{there is a signs of someone, maybe victim cutting the rope}(this is rope that was used to tie up a victim)rope+-*person1-*person2
-garage-/{you picked up a shit}(this is a shit)item3+-/item4+-*person5-*person6
-museum-/item7+-/item8-*person9-*person10
-apartment-/item11-/item12+-*person13-*person14
-house-/item15-/item16-*person17-*person18
+crime_scene-/{bloody knife}(blade has a unique serration pattern)knife+-/{broken watch}(stopped at 9:13)watch+-/{fabric scrap}(red polyester)fabric+-*detective-*janitor
+library-/{torn diary page}("SKIBIDI was here last night")diary_page+-/{book}("Advanced Toxicology")book+-*librarian
+laboratory-/{chemical vial}("Midnight Blue" label)vial+-/{gloves}(size XL, right torn)gloves+-*scientist
+bedroom-/{love letter}("Meet me at the clocktower -S")letter+-/{photo}(blurry figure in red coat)photo+-*victim_roommate
+clocktower-/{footprints}(size 12 boots)footprints+-/{cigarette butt}("Black Lotus" brand)butt+-*clockkeeper
