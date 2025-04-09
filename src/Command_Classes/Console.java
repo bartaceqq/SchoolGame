@@ -58,6 +58,26 @@ public class Console implements Runnable {
         System.out.println(components.roomlist.get(components.inroom).poeple.get(0).conversationlist);
         createcommands();
         while(true){
+            System.out.println("all available rooms: " +
+                    "\ncrime_scene\n" +
+                    "\n" +
+                    "butcher_shop\n" +
+                    "\n" +
+                    "victims_house\n" +
+                    "\n" +
+                    "park\n" +
+                    "\n" +
+                    "alley\n" +
+                    "\n" +
+                    "morgue\n" +
+                    "\n" +
+                    "police_station\n" +
+                    "\n" +
+                    "bank\n" +
+                    "\n" +
+                    "tavern\n" +
+                    "\n" +
+                    "clocktower");
             System.out.print("Enter command: \n >>");
             String command = sc.nextLine();
             if(commandmap.containsKey(command)){
